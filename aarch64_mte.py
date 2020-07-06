@@ -74,6 +74,57 @@ def decode_MTE(code, insn):
 		insn.Op4.value = uimm4
 		insn.Op4.dtype = ida_ua.dt_qword
 		return True
+	elif (code & 0xFFFFFC00) == 0xD9A00000:
+		Xn = (code >>5) & 0x1f
+		Xt = code & 0x1f
+
+		if Xn == 31:
+			Xn += 1
+
+		insn.itype = MTE_STGM
+		insn.size = 4
+		insn.cond = 14
+		insn.Op1.type = ida_ua.o_reg
+		insn.Op1.reg = Xt + 129
+		insn.Op1.dtype = ida_ua.dt_qword
+		insn.Op2.type = ida_ua.o_reg
+		insn.Op2.reg = Xn + 129
+		insn.Op2.dtype = ida_ua.dt_qword
+		return True
+	elif (code & 0xFFFFFC00) == 0xD9200000:
+		Xn = (code >>5) & 0x1f
+		Xt = code & 0x1f
+
+		if Xn == 31:
+			Xn += 1
+
+		insn.itype = MTE_STZGM
+		insn.size = 4
+		insn.cond = 14
+		insn.Op1.type = ida_ua.o_reg
+		insn.Op1.reg = Xt + 129
+		insn.Op1.dtype = ida_ua.dt_qword
+		insn.Op2.type = ida_ua.o_reg
+		insn.Op2.reg = Xn + 129
+		insn.Op2.dtype = ida_ua.dt_qword
+		return True
+	elif (code & 0xFFFFFC00) == 0xD9E00000:
+		Xn = (code >>5) & 0x1f
+		Xt = code & 0x1f
+
+		if Xn == 31:
+			Xn += 1
+
+		insn.itype = MTE_LDGM
+		insn.size = 4
+		insn.cond = 14
+		insn.Op1.type = ida_ua.o_reg
+		insn.Op1.reg = Xt + 129
+		insn.Op1.dtype = ida_ua.dt_qword
+		insn.Op2.type = ida_ua.o_reg
+		insn.Op2.reg = Xn + 129
+		insn.Op2.dtype = ida_ua.dt_qword
+		return True
 	elif (code & 0xffc0c000) == 0xD1800000:
 		Xn = (code >>5) & 0x1f
 		Xd = code & 0x1f
@@ -408,57 +459,6 @@ def decode_MTE(code, insn):
 		insn.Op2.dtype = ida_ua.dt_qword
 		insn.Op2.addr = simm
 		return True	
-	elif (code & 0xFFFFFC00) == 0xD9A00000:
-		Xn = (code >>5) & 0x1f
-		Xt = code & 0x1f
-
-		if Xn == 31:
-			Xn += 1
-
-		insn.itype = MTE_STGM
-		insn.size = 4
-		insn.cond = 14
-		insn.Op1.type = ida_ua.o_reg
-		insn.Op1.reg = Xt + 129
-		insn.Op1.dtype = ida_ua.dt_qword
-		insn.Op2.type = ida_ua.o_reg
-		insn.Op2.reg = Xn + 129
-		insn.Op2.dtype = ida_ua.dt_qword
-		return True
-	elif (code & 0xFFFFFC00) == 0xD9200000:
-		Xn = (code >>5) & 0x1f
-		Xt = code & 0x1f
-
-		if Xn == 31:
-			Xn += 1
-
-		insn.itype = MTE_STZGM
-		insn.size = 4
-		insn.cond = 14
-		insn.Op1.type = ida_ua.o_reg
-		insn.Op1.reg = Xt + 129
-		insn.Op1.dtype = ida_ua.dt_qword
-		insn.Op2.type = ida_ua.o_reg
-		insn.Op2.reg = Xn + 129
-		insn.Op2.dtype = ida_ua.dt_qword
-		return True
-	elif (code & 0xFFFFFC00) == 0xD9E00000:
-		Xn = (code >>5) & 0x1f
-		Xt = code & 0x1f
-
-		if Xn == 31:
-			Xn += 1
-
-		insn.itype = MTE_LDGM
-		insn.size = 4
-		insn.cond = 14
-		insn.Op1.type = ida_ua.o_reg
-		insn.Op1.reg = Xt + 129
-		insn.Op1.dtype = ida_ua.dt_qword
-		insn.Op2.type = ida_ua.o_reg
-		insn.Op2.reg = Xn + 129
-		insn.Op2.dtype = ida_ua.dt_qword
-		return True
 
 	return False
 
