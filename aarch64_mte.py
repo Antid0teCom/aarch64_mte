@@ -224,11 +224,11 @@ def decode_MTE(code, insn):
 		insn.Op2.dtype = ida_ua.dt_qword
 		insn.Op2.addr = simm
 		if mode == 1: 
-			insn.Op2.auxpref = aux_postidx|aux_wback
+			insn.auxpref = aux_postidx
 		elif mode == 3:
-			insn.Op2.auxpref = aux_wback
+			insn.auxpref = aux_wback
 		elif mode == 2:
-			insn.Op2.auxpref = 0
+			insn.auxpref = 0
 		elif mode == 0:
 			return False
 		return True	
@@ -261,11 +261,11 @@ def decode_MTE(code, insn):
 		insn.Op2.dtype = ida_ua.dt_qword
 		insn.Op2.addr = simm
 		if mode == 1: 
-			insn.Op2.auxpref = aux_postidx|aux_wback
+			insn.auxpref = aux_postidx
 		elif mode == 3:
-			insn.Op2.auxpref = aux_wback
+			insn.auxpref = aux_wback
 		elif mode == 2:
-			insn.Op2.auxpref = 0
+			insn.auxpref = 0
 		elif mode == 0:
 			return False
 		return True
@@ -298,11 +298,11 @@ def decode_MTE(code, insn):
 		insn.Op2.dtype = ida_ua.dt_qword
 		insn.Op2.addr = simm
 		if mode == 1: 
-			insn.Op2.auxpref = aux_postidx|aux_wback
+			insn.auxpref = aux_postidx
 		elif mode == 3:
-			insn.Op2.auxpref = aux_wback
+			insn.auxpref = aux_wback
 		elif mode == 2:
-			insn.Op2.auxpref = 0
+			insn.auxpref = 0
 		elif mode == 0:
 			return False
 		return True
@@ -335,11 +335,11 @@ def decode_MTE(code, insn):
 		insn.Op2.dtype = ida_ua.dt_qword
 		insn.Op2.addr = simm
 		if mode == 1: 
-			insn.Op2.auxpref = aux_postidx|aux_wback
+			insn.auxpref = aux_postidx
 		elif mode == 3:
-			insn.Op2.auxpref = aux_wback
+			insn.auxpref = aux_wback
 		elif mode == 2:
-			insn.Op2.auxpref = 0
+			insn.auxpref = 0
 		elif mode == 0:
 			return False
 		return True
@@ -374,11 +374,11 @@ def decode_MTE(code, insn):
 		insn.Op3.dtype = ida_ua.dt_qword
 		insn.Op3.addr = simm
 		if mode == 1: 
-			insn.Op3.auxpref = aux_postidx|aux_wback
+			insn.auxpref = aux_postidx
 		elif mode == 3:
-			insn.Op3.auxpref = aux_wback
+			insn.auxpref = aux_wback
 		elif mode == 2:
-			insn.Op3.auxpref = 0
+			insn.auxpref = 0
 		elif mode == 0:
 			return False
 		return True
