@@ -87,9 +87,10 @@ def decode_MTE(code, insn):
 		insn.Op1.type = ida_ua.o_reg
 		insn.Op1.reg = Xt + 129
 		insn.Op1.dtype = ida_ua.dt_qword
-		insn.Op2.type = ida_ua.o_reg
+		insn.Op2.type = ida_ua.o_displ
 		insn.Op2.reg = Xn + 129
 		insn.Op2.dtype = ida_ua.dt_qword
+		insn.Op2.addr = 0
 		return True
 	elif (code & 0xFFFFFC00) == 0xD9200000:
 		Xn = (code >>5) & 0x1f
@@ -104,9 +105,10 @@ def decode_MTE(code, insn):
 		insn.Op1.type = ida_ua.o_reg
 		insn.Op1.reg = Xt + 129
 		insn.Op1.dtype = ida_ua.dt_qword
-		insn.Op2.type = ida_ua.o_reg
+		insn.Op2.type = ida_ua.o_displ
 		insn.Op2.reg = Xn + 129
 		insn.Op2.dtype = ida_ua.dt_qword
+		insn.Op2.addr = 0
 		return True
 	elif (code & 0xFFFFFC00) == 0xD9E00000:
 		Xn = (code >>5) & 0x1f
@@ -121,9 +123,10 @@ def decode_MTE(code, insn):
 		insn.Op1.type = ida_ua.o_reg
 		insn.Op1.reg = Xt + 129
 		insn.Op1.dtype = ida_ua.dt_qword
-		insn.Op2.type = ida_ua.o_reg
+		insn.Op2.type = ida_ua.o_displ
 		insn.Op2.reg = Xn + 129
 		insn.Op2.dtype = ida_ua.dt_qword
+		insn.Op2.addr = 0
 		return True
 	elif (code & 0xffc0c000) == 0xD1800000:
 		Xn = (code >>5) & 0x1f
