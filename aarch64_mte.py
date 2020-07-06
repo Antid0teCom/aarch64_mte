@@ -68,7 +68,7 @@ def decode_MTE(code, insn):
 		insn.Op2.reg = Xn + 129
 		insn.Op2.dtype = ida_ua.dt_qword
 		insn.Op3.type = ida_ua.o_imm
-		insn.Op3.value = uimm6
+		insn.Op3.value = uimm6 * 16
 		insn.Op3.dtype = ida_ua.dt_qword
 		insn.Op4.type = ida_ua.o_imm
 		insn.Op4.value = uimm4
@@ -149,7 +149,7 @@ def decode_MTE(code, insn):
 		insn.Op2.reg = Xn + 129
 		insn.Op2.dtype = ida_ua.dt_qword
 		insn.Op3.type = ida_ua.o_imm
-		insn.Op3.value = uimm6
+		insn.Op3.value = uimm6 * 16
 		insn.Op3.dtype = ida_ua.dt_qword
 		insn.Op4.type = ida_ua.o_imm
 		insn.Op4.value = uimm4
